@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Andrii Solodkyi — QA Automation Engineer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #FAFAF8;
+    --ink: #1A1A18;
+    --mid: #4A4A46;
+    --muted: #8A8A84;
+    --rule: #D8D8D2;
+    --accent: #2B5A8A;
+    --accent-light: #EBF2FA;
+    --page-w: 820px;
+    --gap: 28px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    padding: 40px 20px 60px;
+  }
+
+  .page {
+    max-width: var(--page-w);
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 52px 60px;
+  }
+
+  /* ── Header ── */
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: var(--gap);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .role-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 6px;
+  }
+
+  .contact {
+    text-align: right;
+    font-size: 12.5px;
+    color: var(--mid);
+    line-height: 1.8;
+  }
+
+  .contact a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ── Summary ── */
+  .summary {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: var(--gap);
+  }
+
+  /* ── Section layout ── */
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr 188px;
+    gap: 36px;
+    align-items: start;
+  }
+
+  /* ── Section headings ── */
+  h2 {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  section { margin-bottom: 28px; }
+
+  /* ── Experience ── */
+  .job { margin-bottom: 22px; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .job-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .job-company {
+    font-weight: 400;
+    color: var(--mid);
+  }
+
+  .job-meta {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .job-stack {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 4px 0 8px;
+    font-style: italic;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+    font-size: 13px;
+    color: var(--mid);
+  }
+
+  ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar section { margin-bottom: 24px; }
+
+  .skill-group { margin-bottom: 12px; }
+
+  .skill-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tag {
+    font-size: 11.5px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 3px;
+    padding: 2px 7px;
+    font-weight: 500;
+  }
+
+  .edu-degree {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .edu-school {
+    font-size: 12.5px;
+    color: var(--mid);
+    margin-top: 2px;
+  }
+
+  .edu-note {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: var(--mid);
+    margin-bottom: 3px;
+  }
+
+  .lang-level {
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+
+  @media print {
+    body { padding: 0; background: #fff; }
+    .page { border: none; padding: 36px 44px; }
+    .note-box { display: none; }
+  }
+
+  @media (max-width: 620px) {
+    .page { padding: 28px 22px; }
+    .body-grid { grid-template-columns: 1fr; }
+    header { grid-template-columns: 1fr; }
+    .contact { text-align: left; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>Andrii Solodkyi</h1>
+      <div class="role-tag">QA Automation Engineer</div>
+    </div>
+    <div class="contact">
+      govoryn12@gmail.com<br>
+      +380 68 077 2333<br>
+      <a href="https://linkedin.com/in/andrii-solodkyi-qa-automation/">linkedin.com/in/andrii-solodkyi-qa-automation</a>
+    </div>
+  </header>
+
+  <div class="summary">
+    Senior QA Automation Engineer with 7+ years of experience designing scalable automation frameworks and driving quality practices across high-traffic platforms. Specializes in Playwright/TypeScript and Java-based automation, with a proven ability to build test suites from the ground up, optimise CI/CD pipelines, and define testing strategy. Known for cross-team collaboration, mentoring QA engineers, and improving system testability at the source.
+  </div>
+
+  <div class="body-grid">
+
+    <!-- ── Main column ── -->
+    <div class="main">
+
+      <section>
+        <h2>Experience</h2>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <span class="job-title">QA Automation Engineer</span>
+              <span class="job-company"> · Favbet Tech</span>
+            </div>
+            <div class="job-meta">Nov 2024 – Jun 2026 · Remote</div>
+          </div>
+          <div class="job-stack">Playwright · TypeScript · Node.js · GitLab CI</div>
+          <p style="font-size:13px;color:#4A4A46;margin-bottom:8px;">Building and owning the Playwright automation ecosystem for a high-traffic sports betting platform serving millions of users.</p>
+          <ul>
+            <li>Designed and maintained the core Playwright automation framework (TypeScript + Node.js)</li>
+            <li>Defined and improved the overall regression testing strategy across the QA team</li>
+            <li>Expanded the automation suite to 2,000+ tests, providing broad regression coverage across two active projects</li>
+            <li>Reduced end-to-end test execution time by 75% through parallelization and sharding strategies</li>
+            <li>Built and maintained CI pipelines in GitLab CI to integrate automated tests into the delivery workflow</li>
+            <li>Improved system testability by working with developers to introduce a dedicated entrypoint for sending test data directly into the system under test, simplifying and speeding up test setup</li>
+            <li>Integrated test results notifications into Microsoft Teams, giving the team instant visibility on CI run outcomes</li>
+            <li>Mentored new QA Automation Engineers and guided Manual QA engineers transitioning toward a General QA role, supporting their growth in automation fundamentals and testing practices</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <span class="job-title">QA Automation Engineer</span>
+              <span class="job-company"> · Advanced Software Development (ASD Ltd)</span>
+            </div>
+            <div class="job-meta">Jul 2019 – Mar 2024 · Chernivtsi, Ukraine</div>
+          </div>
+          <div class="job-stack">Java · JUnit · Serenity BDD · Maven · Jenkins · Kafka · Cassandra</div>
+          <p style="font-size:13px;color:#4A4A46;margin-bottom:8px;">Designed and maintained the full automation infrastructure for a large-scale travel booking platform, covering API, UI, and end-to-end test layers.</p>
+          <ul>
+            <li>Led end-to-end automation development for a large-scale booking platform, building a suite of 500 tests (420 API, 80 UI)</li>
+            <li>Migrated the automation framework from JUnit 4 to JUnit 5, modernizing the testing stack and removing legacy constraints</li>
+            <li>Provisioned a dedicated test environment with isolated MySQL and Cassandra instances and implemented automated clean-up and setup routines, eliminating data collisions and ensuring consistent, reproducible results</li>
+            <li>Implemented automatic test retry logic for flaky tests, significantly increasing CI reliability</li>
+            <li>Optimized Jenkins pipelines, reducing CI feedback time and improving developer experience</li>
+            <li>Integrated test results notifications into Slack, providing the team with immediate feedback on pipeline outcomes</li>
+            <li>Mentored new QA Automation Engineers, supporting their onboarding and growth within the team</li>
+          </ul>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- ── Sidebar ── -->
+    <div class="sidebar">
+
+      <section>
+        <h2>Skills</h2>
+
+        <div class="skill-group">
+          <div class="skill-label">Automation Tools</div>
+          <div class="skill-tags">
+            <span class="tag">Playwright</span>
+            <span class="tag">JUnit</span>
+            <span class="tag">Serenity BDD</span>
+            <span class="tag">WireMock</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Testing</div>
+          <div class="skill-tags">
+            <span class="tag">UI Testing</span>
+            <span class="tag">API Testing</span>
+            <span class="tag">E2E Testing</span>
+            <span class="tag">Contract Testing</span>
+            <span class="tag">Test Architecture</span>
+            <span class="tag">Test Strategy</span>
+            <span class="tag">CI/CD Automation</span>
+            <span class="tag">Test Data Management</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Development</div>
+          <div class="skill-tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Java</span>
+            <span class="tag">Maven</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Databases</div>
+          <div class="skill-tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">Cassandra</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Kafka</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">CI / DevOps</div>
+          <div class="skill-tags">
+            <span class="tag">GitLab CI</span>
+            <span class="tag">Jenkins</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">AI Tools</div>
+          <div class="skill-tags">
+            <span class="tag">Claude Code</span>
+            <span class="tag">Cursor</span>
+          </div>
+        </div>
+
+
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu-degree">Master's Degree</div>
+        <div class="edu-school">Telecommunications Engineering</div>
+        <div class="edu-school">Chernivtsi National University</div>
+        <div class="edu-note">2008 – 2012</div>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <div class="lang-row">
+          <span>Ukrainian</span>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-row">
+          <span>English</span>
+          <span class="lang-level">B2</span>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
